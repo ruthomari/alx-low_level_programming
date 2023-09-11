@@ -1,8 +1,9 @@
 #include <stdio.h>
- /**
-  * main - this is a main function
-  * Return: 0 success
-  */
+/**
+ * main - main function
+ *
+ * Return: always 0
+ */
 int main(void)
 {
 char a;
