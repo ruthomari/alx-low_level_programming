@@ -1,26 +1,42 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strncat - Concatenates two strings, using at most n bytes from src
- * @dest: The destination string
- * @src: The source string to append to dest
- * @n: The maximum number of characters to copy from src
- *
- * Return: A pointer to the resulting string dest
+ * print_buffer - prints a buffer
+ * @b: buffer to print
+ * @size: size of the buffer
  */
-char *_strncat(char *dest, char *src, int n)
+void print_buffer(char *b, int size)
 {
-	int dest_len = 0;
-	int i;
+int i, j;
 
-	while (dest[dest_len] != '\0')
-	{
-		dest_len++;
-	}
-	for (i = 0; src[i] != '\0' && i < n; i++)
-	{
-		dest[dest_len + i] = src[i];
-	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+for (i = 0; i < size; i += 10)
+{
+printf("%08x: ", i);
+
+for (j = 0; j < 10; j++)
+{
+if (i + j < size)
+printf("%02x", b[i + j]);
+else
+printf("  ");
+
+if (j % 2)
+printf(" ");
+}
+
+for (j = 0; j < 10; j++)
+{
+if (i + j < size)
+{
+if (b[i + j] >= 32 && b[i + j] <= 126)
+printf("%c", b[i + j]);
+else
+printf(".");
+}
+}
+printf("\n");
+}
+if (size <= 0)
+printf("\n");
 }
